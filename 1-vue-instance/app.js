@@ -9,6 +9,22 @@ const app = Vue.createApp({
                 alt: "google-tarayıcı",
             },
             owner: "pogaca",
+            coords: {
+                x: 0,
+                y: 0,
+            },
         };
+    },
+    methods: {
+        changeTitle(pTitle) {
+            this.title = pTitle;
+        },
+        updateCoords(message) {
+            this.changeTitle(`${event.x},${event.y}`);
+            this.coords = {
+                x: event.x,
+                y: event.y,
+            };
+        },
     },
 }).mount("#app");

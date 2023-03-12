@@ -4,16 +4,35 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
 </head>
 <body>
     <div id="app">
+
+        {{changeTitle("Bu başlangıçta değişecek bir bilgidir.")}}
+        
         <h1>{{title}}</h1>
         <p>{{content}}</p>
         <a :href="eduflow.url" :target="eduflow.target" :alt="eduflow.alt">{{eduflow.title}}</a>
+        <br>
+        <br>
+
+    <button v-on:click="changeTitle('Bu birinci buton')">Title Değiştir...</button>
+    <button v-on:click="changeTitle('Bu ikinci buton')">Title Değiştir...</button>
+
+        
+
+    <div @mousemove="updateCoords('mouseMooove',$event)" class="box" @click="changeTitle('Box üzerinden gelen')"></div>
+
+    <span>{{coords.x}},{{coords.y}}</span>
+    
     </div>
+    
+
+
 
 <script src='app.js'></script>
 

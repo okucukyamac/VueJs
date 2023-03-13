@@ -14,8 +14,8 @@ const app = Vue.createApp({
     };
   },
   methods: {
-    tikla(event) {
-      this.title = "değişen title";
+    tikla(title) {
+      this.title = title||"değişen title";
     },
   },
 }).mount("#app");

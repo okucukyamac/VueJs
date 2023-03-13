@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template Instance</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{title}}</h1>
+      <p>{{content}}</p>
+      <p>{{hobbies[0]}}</p>
+      <p>{{personal}}</p>
+      <p v-html="details"><p>
+        <a :href="url">Url test</a>
+        <br>
+        <br>
+
+        <button class="btn btn-sm btn-primary" v-on:click="title='Bu benim Yeni mesajım'">Tıkla ve title değiştir.</button>
+        <button class="btn btn-sm btn-primary" @click="tikla()">Tıkla ve title değiştir.</button>
+        <!-- <input type="text"> -->
+    </div>  
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -11,11 +11,16 @@ const app = Vue.createApp({
       },
       details: `<a href="https://www.google.com">Tıklayınıc</a>`,
       url: "https://www.google.com",
+      fullName: "Oğuzhan Küçükyamaç",
     };
   },
   methods: {
     tikla(title) {
-      this.title = title||"değişen title";
+      this.title = title || "değişen title";
     },
+    // updateValue(f,e) {
+    //   console.log(f + e.target.value);
+    //   this.fullName=e.target.value;
+    // },
   },
 }).mount("#app");

@@ -13,15 +13,26 @@
       <p>{{content}}</p>
       <p>{{hobbies[0]}}</p>
       <p>{{personal}}</p>
-      <p v-html="details"><p>
-        <a :href="url">Url test</a>
-        <br>
-        <br>
+      <p v-html="details"></p>
+      <a :href="url">Url test</a>
+      <br />
+      <br />
 
-        <button class="btn btn-sm btn-primary" v-on:click="title='Bu benim Yeni mesajım'">Tıkla ve title değiştir.</button>
-        <button class="btn btn-sm btn-primary" @click="tikla('kardeşim bu benim parametrem..')">Tıkla ve title değiştir.</button>
-        <!-- <input type="text"> -->
-    </div>  
+      <button class="btn btn-sm btn-primary" v-on:click="title='Bu benim Yeni mesajım'">Tıkla ve title değiştir.</button>
+      <button class="btn btn-sm btn-primary" @click="tikla('kardeşim bu benim parametrem..')">Tıkla ve title değiştir.</button>
+      <!-- <input type="text"> -->
+      <br /><br />
+      <input 
+      type="text" 
+      :value="fullName" 
+      
+      @input="fullName=$event.target.value" />
+      <!-- @input="updateValue('bu benim text',$event)" -->
+
+      <input type="text" v-model="fullName"/>
+      
+       {{fullName}}
+    </div>
 
     <script src="app.js"></script>
   </body>

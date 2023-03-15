@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conditions</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+        <button @click="showState=!showState">Göster / Gizle</button>
+    {{showState}}
+        <h3 v-if="showState">Gösterilecek başlık...</h3>
+        <h3 v-else>Gizlenen başlık...</h3>
+
+<br><br><br>
+        <button @click="showState=!showState">Göster / Gizle</button>
+        {{showState}}
+            <h3 v-show="showState">Gösterilecek başlık...</h3>
+            <h3 v-show="!showState">Gizlenen başlık...</h3>
+    </div>
+
+
+    <script src="app.js"></script>
+  </body>
+</html>

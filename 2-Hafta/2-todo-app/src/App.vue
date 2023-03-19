@@ -2,41 +2,48 @@
   <div class="container">
     <h3>Todo App</h3>
     <hr class="mt-2 mb-2" />
-    <AddSection @add-todo="addNewTodo" :addNewTodo="addNewTodo"/>
-    <TodoList :myData="todoList" @delete-todo-item="deleteItem($event)"/>
-    <ResultBar :itemCount="todoList.length" />
+    <AddSection @add-todo="addNewTodo" :addNewTodo="addNewTodo" />
+    <ListSection @delete-todo-item="deleteItem" :todoList="todoList" />
   </div>
 </template>
 
 <script>
 import AddSection from "@/components/AddSection";
-import TodoList from "@/components/TodoList";
-import ResultBar from "@/components/ResultBar";
+import ListSection from "@/components/ListSection";
+
 export default {
   components: {
     AddSection,
-    TodoList,
-    ResultBar,
+    ListSection,
   },
   data() {
     return {
-      todoList: [  
-
-      ],
-    };
-  },
-  created() {
-    setTimeout(() => {
-      this.todoList = [ { id: 1, text: "Bootcamp #2" },
+      todoList: [
+        { id: 1, text: "Bootcamp #2" },
         { id: 2, text: "Bootcamp #2.1" },
         { id: 3, text: "Bootcamp #2.2" },
         { id: 4, text: "Bootcamp #2.3" },
         { id: 5, text: "Bootcamp #2.4" },
-        { id: 6, text: "Bootcamp #2.5" },];
-    }, 2000);
+        { id: 6, text: "Bootcamp #2.5" },
+      ],
+    };
+  },
+  provide() {
+    return {
+      todoList: this.todoList,
+    };
+  },
+  created() {
+    // setTimeout(() => {
+    //   this.todoList = [ { id: 1, text: "Bootcamp #2" },
+    //     { id: 2, text: "Bootcamp #2.1" },
+    //     { id: 3, text: "Bootcamp #2.2" },
+    //     { id: 4, text: "Bootcamp #2.3" },
+    //     { id: 5, text: "Bootcamp #2.4" },
+    //     { id: 6, text: "Bootcamp #2.5" },];
+    // }, 2000);
   },
   methods: {
-
     deleteItem(todoItem) {
       this.todoList = this.todoList.filter((t) => t !== todoItem);
     },
@@ -45,7 +52,6 @@ export default {
         id: new Date().getTime(),
         text: todo,
       });
-      
     },
   },
 };

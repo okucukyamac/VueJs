@@ -4,17 +4,18 @@
         <span>Todo Item #{{ todoItem.text }}</span>
         <button @click="deleteItem(todoItem)" class="sm red">Sil</button>
       </li> -->
-<TodoListItem @delete-todo-item="$emit('delete-todo-item', $event)" :item="todoItem" v-for="todoItem in myData" :key="todoItem.id"/>
+    <TodoListItem @delete-todo-item="$emit('delete-todo-item', $event)" :item="todoItem" v-for="todoItem in myData" :key="todoItem.id" />
   </ul>
 </template>
 
 <script>
-    import TodoListItem from "@/components/TodoListItem"
+import TodoListItem from "@/components/TodoListItem";
 
-    export default({
-        props:["myData"],
-        components:{
-            TodoListItem
-        }
-    })
+export default {
+  // props:["myData"],
+  inject: ["todoList"],
+  components: {
+    TodoListItem,
+  },
+};
 </script>

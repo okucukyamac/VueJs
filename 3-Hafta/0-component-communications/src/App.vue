@@ -10,6 +10,7 @@ import UserSection from "@/components/UserSection";
 export default {
   components: {
     UserSection,
+    
   },
   data() {
     return {
